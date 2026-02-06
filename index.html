@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Hand Motion Slime Runner</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- MediaPipe Dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+      <video id="videoElement" autoplay muted playsinline></video>
+      <canvas id="handCanvas" width="160" height="120"></canvas>
+
+      <div id="ui">
+        <div id="score">Score: 0</div>
+        <div id="instructions">
+          <strong>Hand Controls:</strong><br />
+          🖐️ Open = JUMP<br />
+          ✊ Fist = CROUCH<br />
+          📏 Normal = RUN
+        </div>
+        <div id="handStatus">Initializing...</div>
+      </div>
+
+      <div id="gesture-indicator" class="gesture-indicator normal">NORMAL</div>
+
+      <button id="startButton">Start Slime Runner</button>
+
+      <div id="gameOver">
+        <h2>Game Over!</h2>
+        <div id="finalScore">Score: 0</div>
+        <p>Nice slime control!</p>
+        <button id="restartButton">Play Again</button>
+      </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/handTracking.js"></script>
+    <script src="js/gameEngine.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/game.js"></script> -->
+  </body>
+</html>
